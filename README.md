@@ -1,6 +1,6 @@
 # linux-network-device-state-orchestrator
 
-A distributed control plane for managing DPDK/AF_XDP VPP routers and SONiC switches across multiple sites. This system enables scalable configuration management through a RESTful API, gRPC-based device communication, and on-device state caching.
+A distributed control plane for managing DPDK/AF_XDP VPP routers and SONiC switches across multiple sites. This system enables scalable configuration management through a RESTful API, gNMI & gRPC-based device communication, and on-device state caching.
 
 ## Overview
 
@@ -17,9 +17,9 @@ Each network device subscribes to only the relevant subset of state data. Device
 ## Architecture
 
 ```
-+-------------+        REST         +----------------+         gRPC         +------------------+
++-------------+        REST         +----------------+         gRPC        +------------------+
 |  Operator   | ------------------> | Control Plane  | ------------------> | Device Agent     |
-|  (User/API) |                     | (Golang)       |                     | (VPP / SONiC)     |
+|  (User/API) |                     | (Golang)       |                     | (VPP / SONiC)    |
 +-------------+                     +----------------+                     +------------------+
         |                                 |                                          |
         |                                 |                                          |
